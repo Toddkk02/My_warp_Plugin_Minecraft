@@ -1,0 +1,25 @@
+package me.toddkk02;
+
+import Comandi.OpenGUI;
+import Eventi.EventoClickGUI;
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main extends JavaPlugin {
+    public static Main plugin;
+
+    @Override
+    public void onEnable(){
+        plugin = this;
+        System.out.println(ChatColor.DARK_BLUE + "Plugin attivato");
+        this.getCommand("warp").setExecutor(new OpenGUI());
+        getServer().getPluginManager().registerEvents(new EventoClickGUI(), this);
+
+
+    }
+    @Override
+    public void onDisable(){
+        System.out.println(ChatColor.RED + "Plugin disattivato");
+    }
+
+    }
